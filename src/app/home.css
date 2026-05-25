@@ -1,0 +1,344 @@
+.hero {
+  background: var(--bg);
+  background: linear-gradient(0deg, var(--bg-dark) 0%, var(--bg) 60%);
+}
+
+.hero .container {
+  margin-top: 50px;
+  min-height: 90dvh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hero_text {
+  max-width: 600px;
+}
+
+.hero_text h1 {
+  font-size: 48px;
+  text-wrap: balance;
+}
+
+.hero_images {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero_images img {
+  width: 600px;
+}
+
+.hero_images::before {
+  content: '';
+  width: 300px;
+  height: 300px;
+  background-image: url('/shape1.svg');
+  background-size: cover;
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: -100px;
+}
+
+.hero_images::after {
+  content: '';
+  width: 150px;
+  height: 150px;
+  background-image: url('/dots.svg');
+  background-size: cover;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  bottom: 70px;
+  right: 10px;
+}
+
+.hero_looking-job {
+  padding: 5px 10px;
+  border: 1px solid var(--white);
+  background-color: var(--bg);
+  background: linear-gradient(0deg, var(--bg) 50%, var(--bg-light) 100%);
+}
+
+.hero_looking-job::before {
+  content: "";
+  width: 15px; height: 15px;
+  margin-right: 10px;
+  box-shadow: 0 0 5px var(--primary);
+  background-color: var(--primary);
+  display: inline-block;
+}
+
+@media (max-width: 1100px) {
+  .hero .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .hero_images img {
+    width: 100%;
+  }
+}
+
+
+/*###-- EXPERIENCIA --###*/
+.experiences {
+  padding-top: 100px;
+  background: var(--bg);
+  background: linear-gradient(0deg, var(--bg-light) 70%, var(--bg-dark) 100%);
+}
+
+.experiences_title {
+  margin: 0 auto 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.experiences_title span {
+  /* width: 120px; */
+  min-width: 10%;
+  height: 1px;
+  background-color: var(--white);
+  display: block;
+
+}
+
+/* -- Terminal -- */
+
+.terminal {
+  border: 1px solid var(--gray);
+  position: relative;
+}
+
+.terminal_content {
+  padding: 5px 20px;
+}
+
+.terminal_top-frame  {
+  padding: 10px;
+  background-color: #0f111454;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.terminal_buttons span {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 100px;
+  background-color: var(--primary);
+  display: inline-block;
+}
+
+.terminal_top-frame h3 {
+  margin: 0;
+  text-align: center;
+}
+
+.terminal_input--p1 {
+  margin-left: 10px;
+  padding-right: 5px;
+  color: var(--bg);
+  background-color: var(--white);
+  position: relative;
+  z-index: 5;
+}
+
+.terminal_input--p1::before {
+  content: "";
+  width: 10px;
+  height: 19px;
+  background-image: url('/dots.svg');
+  background-size: contain;
+  display: inline-block;
+  position: absolute;
+  left: -12px;
+  top: 0px;
+}
+
+.terminal_input--p1::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 0 solid transparent;
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 10px solid var(--white);
+  transform: rotate(90deg);
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: -14px;
+}
+
+.terminal_input--p2 {
+  padding: 0 5px 0 30px;
+  color: var(--white);
+  background-color: #62aeef;
+  position: relative;
+  z-index: 3;
+}
+
+.terminal_input--p2::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-image: url('/git_icon.png');
+  background-size: contain;
+  display: inline-block;
+  position: absolute;
+  left: 14px;
+}
+
+.terminal_input--p2::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 0 solid transparent;
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 10px solid #62aeef;
+  transform: rotate(90deg);
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: -14px;
+}
+
+.terminal_input--p3 {
+  padding-left: 20px;
+  color: var(--primary);
+}
+
+.xp {
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  /* align-items: end; */
+}
+
+.xp_images {
+  justify-self: center;
+}
+
+.xp_text span {
+  color: var(--primary);
+}
+
+.xp_text p:first-of-type {
+  padding-bottom: 20px;
+  border-bottom: 2px dashed var(--primary);
+}
+
+@media (max-width: 768px) {
+  .xp {
+    grid-template-columns: 100%;
+  }
+
+  .xp_images {
+    font-size: 12px;
+  }
+}
+
+
+
+/*###-- PROYECTOS --###*/
+.projects {
+  padding-top: 100px;
+  background: var(--bg);
+  background: linear-gradient(0deg, var(--bg) 70%, var(--bg-light) 100%);
+}
+
+.projects-grid {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+
+/*###-- HABILIDADES --###*/
+.skills {
+  margin-top: 100px;
+  padding: 20px;
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--gray);
+  border-bottom: 1px solid var(--gray);
+}
+
+
+/*###-- SOBRE MI --###*/
+.about {
+  margin-top: 100px;
+}
+
+.about .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about_text {
+  max-width: 600px;
+}
+
+.about img {
+  max-width: 450px;
+  border-bottom: 1px solid var(--primary);
+}
+
+@media (max-width: 768px) {
+  .about img {
+    display: none;
+  }
+}
+
+
+/*###-- CONTACTO --###*/
+.contact {
+  margin-top: 100px;
+  border: 1px solid var(--white);
+  position: relative;
+}
+
+.contact .section-title {
+  position: absolute;
+  top: -45px;
+  left: calc(50% - 90px);
+  background-color: var(--bg);
+}
+
+.contact_content {
+  padding: 50px 10px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.contact_content p {
+  color: var(--gray);
+  max-width: 400px;
+}
+
+.rrss {
+  padding: 20px 40px;
+  border: 1px solid var(--white);
+  background-color: var(--bg-dark);
+}
+
+.rrss h3 {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .contact_content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}

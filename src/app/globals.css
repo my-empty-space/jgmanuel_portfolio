@@ -1,0 +1,93 @@
+:root {
+  --white: #FFFFFF;
+  --primary: #78DDA0;
+  --secondary: #1399c4;
+  --gray: #ABB2BF;
+  --bg: #1d1f22;
+  --bg-light: #282C33;
+  --bg-dark: #1a1b1d;
+  scroll-behavior: smooth;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+img {
+  width: 100%;
+}
+
+
+/*###-- Generalidades --###*/
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.section-title {
+  margin: 0 auto 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.section-title h2 {
+  padding: 10px 32px;
+  width: fit-content;
+  border: 1px solid var(--white);
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.section-title span {
+  /* width: 120px; */
+  min-width: 10%;
+  height: 1px;
+  background-color: var(--white);
+  display: block;
+
+}
+
+.section-title--left {
+  justify-content: flex-start;
+}
+
+.section-title--right {
+  justify-content: flex-end;
+}
+
+.projects_subtitle {
+  font-size: 24px;
+  color: var(--gray);
+}
+
+.btn {
+  padding: 7px 15px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--white);
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.text-glow--primary {
+  color: var(--primary);
+  text-shadow: 0 0 3px var(--primary);
+}
+
+.text-glow--secondary {
+  color: var(--secondary);
+  text-shadow: 0 0 3px var(--secondary);
+}

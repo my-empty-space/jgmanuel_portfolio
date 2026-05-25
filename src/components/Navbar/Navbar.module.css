@@ -1,0 +1,129 @@
+.header {
+  width: 100dvw;
+  border-bottom: 1px solid var(--gray);
+  background-color: #0f111454;
+  backdrop-filter: blur(4px);
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+}
+
+.header div {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+}
+
+.navbar {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  color: var(--white);
+  transition: color 0.2s;
+  text-decoration: none;
+  transition: text-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 3px var(--primary);
+}
+
+.navbar a span {
+  color: var(--primary);
+}
+
+
+.mobileBtn {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.mobileBtn::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background-color: var(--white);
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 0;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.mobileBtn::after {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background-color: var(--white);
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 0;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.input:checked ~ .mobileBtn::before {
+  top: 15px;
+  transform: rotate(45deg);
+}
+
+.input:checked ~ .mobileBtn::after {
+  width: 30px;
+  top: 15px;
+  transform: rotate(-45deg);
+}
+
+.input,
+.mobileBtn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileBtn {
+    display: block;
+  }
+  .navbar {
+    width: 100vw;
+    height: calc(100dvh - 70px);
+    padding: 40px 0;
+    
+    text-align: center;
+    font-size: 24px;
+    background-color: var(--bg);
+    background: linear-gradient(0deg, var(--bg-dark) 0%, var(--bg) 100%);
+
+    flex-direction: column;
+    gap: 0px;
+    position: absolute;
+    top: 70px;
+    right: -110%;
+
+    transition: right 0.4s ease;
+  }
+
+  .navbar a {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--bg-light);
+    transition: all 0.3s;
+  }
+
+  .navbar a:hover {
+    background-color: #282C3350;
+  }
+
+  .input:checked ~ .navbar {
+    right: 0;
+  }
+}
