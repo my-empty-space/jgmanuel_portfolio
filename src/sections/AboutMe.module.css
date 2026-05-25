@@ -1,0 +1,148 @@
+.about {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  margin-bottom: 200px;
+
+  position: relative;
+}
+
+.about_img {
+  height: 100%;
+  max-width: 560px;
+  position: relative;
+
+  & img {
+    object-fit: contain;
+    object-position: bottom;
+  }
+}
+
+.about_img::before {
+  content: '';
+  width: 100%;
+  height: 30px;
+  background: radial-gradient(
+    53.26% 123.21% at 49.22% 121.43%,
+    #78dda0 0%,
+    rgba(120, 221, 160, 0) 100%
+  );
+  display: block;
+  position: absolute;
+  bottom: 3px;
+
+  animation: gradient 1.5s linear infinite alternate;
+}
+
+@keyframes gradient {
+  from {
+    height: 30px;
+  }
+
+  to {
+    height: 20px;
+  }
+}
+
+.about_img::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: var(--c-primary);
+  display: block;
+  position: absolute;
+  bottom: 3px;
+}
+
+.window {
+  max-width: 620px;
+  font-family: var(--font-fira-mono);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  border-radius: 14px;
+  background-color: rgba(34, 35, 42, 0.5);
+
+  overflow: hidden;
+}
+
+.window_frame {
+  height: 40px;
+  padding-left: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  & span {
+    width: 16px;
+    height: 16px;
+    border-radius: 100px;
+    background-color: var(--c-yellow);
+    display: block;
+    transition: filter 0.2s;
+  }
+
+  & span:first-child {
+    background-color: var(--c-error);
+  }
+
+  & span:last-child {
+    background-color: var(--c-primary);
+  }
+
+  & span:hover {
+    filter: brightness(1.2) contrast(3);
+  }
+}
+
+.window_content {
+  margin: 50px 40px 30px 40px;
+  display: grid;
+  gap: 1lh;
+
+  & p:first-of-type {
+    font-weight: 700;
+  }
+}
+
+.tag {
+  color: var(--c-primary);
+}
+
+.vimBar {
+  margin-bottom: 20px;
+  background: #282c33;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  & img {
+    width: 100px;
+    display: inline-block;
+  }
+
+  & span {
+    color: var(--c-gray);
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .about {
+    justify-content: center;
+  }
+
+  .about_img {
+    left: 0;
+    bottom: -100px;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .window {
+    backdrop-filter: blur(3px);
+    background-color: rgba(34, 35, 42, 0.95);
+  }
+}

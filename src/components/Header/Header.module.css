@@ -1,0 +1,140 @@
+.header {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #0f111454;
+  backdrop-filter: blur(4px);
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+}
+
+.space {
+  height: 62px;
+}
+
+.header div {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  font-family: var(--font-fira-mono);
+  color: var(--c-gray);
+  transition: color 0.2s;
+  text-decoration: none;
+  transition: text-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: var(--c-primary);
+}
+
+.navbar a span {
+  color: var(--c-primary);
+}
+
+.navbar .linkActive {
+  color: var(--c-white);
+  font-weight: 500;
+}
+
+.mobileBtn {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.mobileBtn::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background-color: var(--c-white);
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 0;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.mobileBtn::after {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background-color: var(--c-white);
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 0;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.input:checked ~ .mobileBtn::before {
+  top: 15px;
+  transform: rotate(45deg);
+}
+
+.input:checked ~ .mobileBtn::after {
+  width: 30px;
+  top: 15px;
+  transform: rotate(-45deg);
+}
+
+.input,
+.mobileBtn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileBtn {
+    display: block;
+  }
+
+  .navbar {
+    width: 100vw;
+    height: calc(100dvh - 60px);
+    padding: 10px 0;
+    background: var(--c-background);
+
+    text-align: center;
+    font-size: 24px;
+    background-color: var(--c-background);
+    background: linear-gradient(0deg, var(--c-background) 40%, #292b32 100%);
+
+    flex-direction: column;
+    gap: 0px;
+    position: absolute;
+    top: 70px;
+    right: -110%;
+
+    transition: right 0.4s ease;
+  }
+
+  .navbar a {
+    padding: 20px 0;
+    transition: all 0.3s;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar a:hover {
+    background-color: #282c3350;
+  }
+
+  .navbar .linkActive {
+    color: var(--c-primary);
+    font-weight: 500;
+  }
+
+  .input:checked ~ .navbar {
+    right: 0;
+  }
+}
