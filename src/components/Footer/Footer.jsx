@@ -15,7 +15,7 @@ export default function Footer() {
               alt="Logo de marca personal"
             />
           </Link>
-          <span>Hecho en 2025 por José Manuel G.</span>
+          <span>Hecho en 2026 por José Manuel G.</span>
         </div>
 
         <div className={styles.footer_rrss}>
