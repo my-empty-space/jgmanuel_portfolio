@@ -1,0 +1,157 @@
+.componentWraper {
+  position: relative;
+}
+
+.terminal {
+  height: 600px;
+  font-family: var(--font-fira-mono);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  border-radius: 14px;
+  background-color: rgba(34, 35, 42, 0.5);
+  overflow: hidden;
+}
+
+.terminal_frame {
+  height: 40px;
+  padding-left: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  & span {
+    width: 16px;
+    height: 16px;
+    border-radius: 100px;
+    background-color: var(--c-yellow);
+    display: block;
+    transition: filter 0.2s;
+  }
+
+  & span:first-child {
+    background-color: var(--c-error);
+  }
+
+  & span:last-child {
+    background-color: var(--c-primary);
+  }
+
+  & span:hover {
+    filter: brightness(1.2) contrast(3);
+  }
+}
+
+.terminal_input {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  & img {
+    width: 213px;
+    display: inline-block;
+  }
+
+  & span {
+    padding-left: 16px;
+    color: var(--c-primary);
+  }
+}
+
+.terminal_content {
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 400px;
+
+  transition: transform 0.5s ease-in-out;
+}
+
+.terminal_item {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+
+  & span {
+    color: var(--c-white);
+    font-weight: 700;
+  }
+
+  & pre {
+    text-align: center;
+  }
+}
+
+.terminal_item_text {
+  max-width: 600px;
+
+  & a {
+    word-wrap: break-word;
+  }
+}
+
+.terminal_item_description {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--c-gray);
+}
+
+.terminal_buttons {
+  width: calc(100% + 40px);
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  display: flex;
+  justify-content: space-between;
+
+  & div {
+    padding: 8px 12px;
+
+    font-family: var(--font-fira-mono);
+    text-transform: uppercase;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    border-radius: 8px;
+
+    background-color: #282c33;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 850px) {
+  .terminal {
+    height: 80vh;
+    font-size: 14px;
+  }
+
+  .terminal_input img {
+    height: 20px;
+    width: auto;
+  }
+
+  .terminal_item {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 580px) {
+  .terminal_input {
+    display: none;
+  }
+
+  .terminal_item pre {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .terminal_item pre {
+    font-size: 8px;
+  }
+}

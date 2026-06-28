@@ -1,0 +1,34 @@
+.experience {
+  margin-bottom: 200px;
+  position: relative;
+}
+
+.experience_btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.deco1,
+.deco2,
+.deco3 {
+  position: absolute;
+  width: fit-content;
+  opacity: 0.5;
+}
+
+.deco1 {
+  right: -70px;
+  top: 90px;
+  transform: rotate(90deg) scaleY(1.5) scaleX(1.2);
+}
+
+.deco2 {
+  left: -90px;
+  bottom: 80px;
+}
+
+.deco3 {
+  left: -40px;
+  bottom: 0;
+}

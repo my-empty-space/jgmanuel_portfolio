@@ -1,0 +1,82 @@
+:root {
+  --c-primary: #78dda0;
+  --c-error: #e06b74;
+  --c-white: #ffffff;
+  --c-gray: #abb2bf;
+  --c-yellow: #e5c07a;
+  --c-background: #1e1f23;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+body {
+  color: var(--c-white);
+  font-size: 16px;
+
+  background: url('/sand.png') var(--c-background);
+  background-blend-mode: multiply, normal;
+
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: var(--c-primary);
+}
+
+p,
+li {
+  color: var(--c-gray);
+  line-height: 1.4;
+}
+
+img {
+  width: 100%;
+}
+
+/*--- Utilidades ---*/
+.container {
+  margin: 0 auto;
+  max-width: 1300px;
+  padding: 0 20px;
+}
+
+.containerStrech {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+.titles {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  text-align: center;
+
+  & h2 {
+    text-transform: capitalize;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  & h3 {
+    font-size: 20px;
+    color: var(--c-gray);
+    font-weight: 400;
+  }
+}
