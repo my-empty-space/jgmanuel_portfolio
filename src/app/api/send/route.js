@@ -10,13 +10,18 @@ export async function POST(req) {
     const { name, email, message } = body;
 
     const data = await resend.emails.send({
-      from: 'PortfolioV2 <onboarding@resend.dev>',
-      to: [process.env.CONTACT_MAIL],
-      subject: `Formulario de contacto PortfolioV2 de ${name}`,
-      html: `<p><strong>Nombre:</strong> ${name}</p>
-             <p><strong>Correo Electrónico:</strong> ${email}</p>
-             <p><strong>Mensaje:</strong> ${message}</p>`,
-      react: EmailTemplate(body),
+      from: `Portfolio <${process.env.SENDER_CONTACT_MAIL}>`,
+      to: [process.env.RECIPIENT_CONTACT_MAIL],
+      subject: `Contacto desde el Portfolio de ${name}`,
+      template: {
+        id: "portfolio-contact-email",
+        variables: {
+          name: name,
+          email: email,
+          message: message
+        }
+      },
+      // react: EmailTemplate(body),
     });
 
     return NextResponse.json({ data }, { status: 200 });
