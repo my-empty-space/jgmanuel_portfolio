@@ -25,6 +25,7 @@ export default function Contact() {
   async function sendEmail(e) {
     e.preventDefault();
     try {
+      console.log("enviando: ", formData)
       await fetch('/api/send', {
         method: 'POST',
         body: JSON.stringify(formData),

@@ -30,7 +30,7 @@ export default function SkillSelector({ techs = [] }) {
       <div>
         <h2 style={{ color: 'var(--c-error)' }}>TECH prop cannot be empty</h2>
         <p style={{ color: 'var(--c-error)' }}>
-          Select an option from the list for the indexName's below:
+          {"Select an option from the list for the indexName's below:"}
         </p>
 
         <ul

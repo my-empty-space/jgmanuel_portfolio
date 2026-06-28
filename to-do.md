@@ -9,6 +9,7 @@
 - [ ] Asegurar SEO (meta tags, Open Graph) en las páginas dinámicas de `/proyects`
 - [ ] Crear bots para asegurar el linting y formatting durante el CI/CD
 - [ ] Revisar accesibilidad de toda la web (WCAG)
+- [ ] Añadir feedback cuando se envíe el formulario de contacto
 
 ##  In Queue
 - [ ] Crear funcionalidad de blog dinámico para los proyectos
