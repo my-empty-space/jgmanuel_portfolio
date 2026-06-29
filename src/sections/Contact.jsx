@@ -110,7 +110,7 @@ export default function Contact() {
               <input
                 required
                 name="email"
-                type="text"
+                type="email"
                 value={formData.email}
                 onChange={handleChange}
               />
