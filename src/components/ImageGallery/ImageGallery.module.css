@@ -1,119 +1,208 @@
 .imageGallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 
 .imageWrapper {
   width: 100%;
-  aspect-ratio: 1.6 / 1;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  box-shadow: 0 4px 5px 2px rgba(0, 0, 0, 0.30);
-
-
-  /* position: relative; */
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
   cursor: pointer;
-
-  & img {
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* 
-  & p {
-    width: 100%;
-    margin: 0;
-    padding: 10px;
-    font-size: 16px;
-    color: var(--c-gray);
-    background-color: rgba(0, 0, 0, 0.30);
-    position: absolute;
-    bottom: 0;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    overflow: hidden;
-  } */
+  background-color: rgba(25, 25, 25, 0.5);
 }
 
 .imageWrapper:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 10px 4px rgba(0, 0, 0, 0.20);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
 }
 
 .dialog {
-  /* width: 100vw;
-  height: 100dvh;*/
-
-  max-height: calc(100dvh - 30px);
-  max-width: calc(100vw - 80px);
+  max-height: 90dvh;
+  max-width: 90vw;
+  width: auto;
   margin: auto;
-  border: none;
-  border-radius: 8px;
-
-  position: fixed;
-  top: 0;
-
-  & button {
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.5);
-
-    cursor: pointer;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 100;
-  }
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  overflow: visible;
+  color: #fff;
 }
 
 .dialog::backdrop {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dialog[open] {
+  animation: dialog-fade-in 0.3s ease-out forwards;
+}
+
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .dialog_content {
-  width: 100%;
-  /* height: fit-content; */
-  max-height: 100%;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  max-height: 90dvh;
+}
 
-  & .dialog_imageWrapper {
-    width: 100%;
-    height: fit-content;
-    max-height: calc(100dvh - 30px);
-    /* max-height: 100%; */
-    overflow-y: auto;
+.dialog_imageWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: calc(90dvh - 80px); /* Leave room for text if any */
+  padding: 24px;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Custom scrollbar for the image wrapper */
+.dialog_imageWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dialog_imageWrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.dialog_imageWrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.dialog_imageWrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dialog_image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin: auto; /* Keep centered if shorter than the container */
+}
+
+.descriptionWrapper {
+  padding: 16px 24px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.descriptionWrapper p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+/* Buttons */
+.closeBtn, .navBtn {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.closeBtn:hover, .navBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.closeBtn {
+  top: -16px;
+  right: -16px;
+  background: rgba(30, 30, 30, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.navBtn {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+}
+
+.navBtn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevBtn {
+  left: 16px;
+}
+
+.nextBtn {
+  right: 16px;
+}
+
+@media (max-width: 768px) {
+  .navBtn {
+    width: 40px;
+    height: 40px;
   }
-
-  & img {
-    width: 100%;
-    height: fit-content;
-
-    object-fit: cover;
-    object-position: center;
-    display: block;
-
-    position: relative;
-    z-index: 5;
+  
+  .prevBtn {
+    left: 8px;
   }
-
-  & p {
-    width: 100%;
-    margin: 0;
-    padding: 10px 20px;
-    color: #fff;
-    background: rgba(10, 10, 10, 0.4);
-    position: absolute;
-    bottom: 10px;
-    z-index: 10;
+  
+  .nextBtn {
+    right: 8px;
+  }
+  
+  .closeBtn {
+    top: -12px;
+    right: -12px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .dialog_imageWrapper {
+    padding: 12px;
   }
 }
