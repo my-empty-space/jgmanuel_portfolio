@@ -71,7 +71,10 @@ export default function Resume() {
             <Link href="https://github.com/my-empty-space" target="_blank">
               <Image src="/icons/github.svg" width={20} height={20} alt="" />
             </Link>
-            <Link href="https://www.linkedin.com/in/jos%C3%A9-manuel-g-2717b1240/" target="_blank">
+            <Link
+              href="https://www.linkedin.com/in/jos%C3%A9-manuel-g-2717b1240/"
+              target="_blank"
+            >
               <Image src="/icons/linkedin.svg" width={20} height={20} alt="" />
             </Link>
           </div>
@@ -126,10 +129,16 @@ export default function Resume() {
                   alt=""
                 />
               </div>
-              <h3>Educación</h3>
+              <h3>Experiencia Laboral</h3>
             </div>
 
             <div className={styles.resume_section_content}>
+              <div className={styles.resume_item}>
+                <h4>Sociedad Didáctica</h4>
+                <p>Desarrollador Full Stack</p>
+                <span>Mayo 2026 - Actualidad</span>
+              </div>
+
               <div className={styles.resume_item}>
                 <h4>Universidad del Zulia</h4>
                 <p>Técnico de recursos informáticos</p>
@@ -144,8 +153,10 @@ export default function Resume() {
 
               <div className={styles.resume_item}>
                 <h4>Kea Estudio</h4>
-                <p>Desarrollador Web <br />
-                  Contractor</p>
+                <p>
+                  Desarrollador Web <br />
+                  Contractor
+                </p>
                 <span>2022 - 2025</span>
               </div>
             </div>
